@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website của bạn</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111b32;
+      --text:#eaf0ff;
+      --muted:#a9b7d6;
+      --brand:#6ee7ff;
+      --brand2:#a78bfa;
+      --ok:#34d399;
+      --danger:#fb7185;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(110,231,255,.25), transparent 60%),
+        radial-gradient(900px 600px at 90% 20%, rgba(167,139,250,.22), transparent 55%),
+        radial-gradient(900px 600px at 50% 110%, rgba(52,211,153,.10), transparent 60%),
+        var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.6);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: var(--shadow);
+      display:grid; place-items:center;
+      font-weight:900;
+      color:#07101f;
+    }
+    .menu{display:flex; align-items:center; gap:14px}
+    .menu a{
+      padding:10px 12px; border-radius:12px;
+      color:var(--muted);
+      transition:.2s;
+    }
+    .menu a:hover{background: rgba(255,255,255,.06); color:var(--text)}
+    .btn{
+      border:0;
+      padding:11px 14px;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:700;
+      color:#07101f;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: var(--shadow);
+      transition: transform .12s ease;
+      white-space:nowrap;
+    }
+    .btn:active{transform: translateY(1px)}
+    .ghost{
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow:none;
+    }
+
+    .hero{padding:42px 0 20px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:20px;
+      align-items:stretch;
+    }
+    .card{
+      background: rgba(17,27,50,.78);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{padding:28px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      font-weight:600;
+      width: fit-content;
+    }
+    .dot{
+      width:9px;height:9px;border-radius:99px;
+      background: var(--ok);
+      box-shadow: 0 0 0 4px rgba(52,211,153,.18);
+    }
+    h1{margin:14px 0 10px; font-size: clamp(28px, 4.4vw, 44px); line-height:1.15}
+    .lead{color:var(--muted); font-size: 16px; margin:0 0 18px}
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap}
+
+    .hero-side{
+      padding:18px;
+      display:grid;
+      gap:12px;
+      grid-template-rows:auto 1fr;
+    }
+    .mini{
+      padding:16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .mini h3{margin:0 0 6px; font-size:15px}
+    .mini p{margin:0; color:var(--muted); font-size:13px}
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+    }
+    .stat{
+      padding:14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      text-align:center;
+    }
+    .stat b{font-size:18px}
+    .section{padding:26px 0}
+    .section h2{margin:0 0 8px; font-size: 22px}
+    .section p{margin:0 0 16px; color:var(--muted)}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .feature{padding:18px}
+    .tag{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(110,231,255,.12);
+      border:1px solid rgba(110,231,255,.22);
+      color: var(--text);
+      font-weight:700;
+      font-size:12px;
+      margin-bottom:10px;
+    }
+    .feature h3{margin:0 0 6px}
+    .feature p{margin:0; color:var(--muted); font-size:14px}
+
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .form{padding:18px}
+    label{display:block; font-size:13px; color:var(--muted); margin:10px 0 6px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    .note{margin-top:10px; color:var(--muted); font-size:13px}
+    .toast{
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius: 14px;
+      display:none;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+    }
+    .toast.ok{border-color: rgba(52,211,153,.35)}
+    .toast.err{border-color: rgba(251,113,133,.35)}
+    footer{
+      padding:28px 0 40px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 20px;
+    }
+    .top{
+      position:fixed; right:16px; bottom:16px;
+      padding:12px 14px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(11,18,32,.75);
+      color: var(--text);
+      cursor:pointer;
+      display:none;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns: 1fr}
+      .grid{grid-template-columns: 1fr}
+      .contact{grid-template-columns: 1fr}
+      .menu{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home">
+        <div class="logo">W</div>
+        <div>
+          <div>Web của bạn</div>
+          <div style="font-size:12px;color:var(--muted);font-weight:600">Nhanh • Gọn • Đẹp</div>
+        </div>
+      </a>
+
+      <nav class="menu" aria-label="Menu">
+        <a href="#about">Giới thiệu</a>
+        <a href="#services">Dịch vụ</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+
+      <div style="display:flex; gap:10px; align-items:center">
+        <button class="btn ghost" id="toggleTheme" type="button">Đổi nền</button>
+        <a class="btn" href="#contact">Bắt đầu</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="card hero-main">
+          <div class="kicker"><span class="dot"></span> Website demo 1 trang — chạy ngay</div>
+          <h1>Xin chào 👋<br/>Mình dựng web cho bạn bằng tiếng Việt có dấu</h1>
+          <p class="lead">
+            Đây là mẫu website “one-page” gọn nhẹ. Bạn đổi tên, nội dung, màu sắc là dùng được cho
+            portfolio, shop nhỏ, giới thiệu dịch vụ, hoặc landing page.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#services">Xem dịch vụ</a>
+            <button class="btn ghost" id="copyBtn" type="button">Copy link trang</button>
+          </div>
+        </div>
+
+        <div class="card hero-side">
+          <div class="mini">
+            <h3>Điểm nổi bật</h3>
+            <p>Responsive • Nút lên đầu • Form liên hệ • Hiệu ứng nhẹ</p>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>1</b><div style="color:var(--muted);font-size:12px">Trang</div></div>
+            <div class="stat"><b>0</b><div style="color:var(--muted);font-size:12px">Thư viện</div></div>
+            <div class="stat"><b>100%</b><div style="color:var(--muted);font-size:12px">HTML/CSS/JS</div></div>
+          </div>
+          <div class="mini">
+            <h3>Gợi ý nhanh</h3>
+            <p>Muốn làm web bán hàng / blog / giới thiệu game mod? Nói mình biết, mình chỉnh theo ý bạn.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>Giới thiệu</h2>
+      <p>
+        Bạn có thể thay phần này bằng mô tả bản thân / doanh nghiệp.
+        Mình đã tối ưu để dễ chỉnh sửa: tìm là thấy, không rối.
+      </p>
+
+      <div class="grid">
+        <div class="card feature">
+          <div class="tag">Dễ chỉnh</div>
+          <h3>Nội dung rõ ràng</h3>
+          <p>Đổi chữ trực tiếp trong file. Không cần build, không cần cài gì.</p>
+        </div>
+        <div class="card feature">
+          <div class="tag">Nhanh</div>
+          <h3>Tải nhanh</h3>
+          <p>Không dùng thư viện nặng. Mở bằng trình duyệt là chạy.</p>
+        </div>
+        <div class="card feature">
+          <div class="tag">Đẹp</div>
+          <h3>Giao diện hiện đại</h3>
+          <p>Nền gradient, card bo góc, bóng đổ nhẹ — nhìn xịn.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Dịch vụ</h2>
+      <p>Ví dụ vài “gói” bạn có thể để trên landing page.</p>
+
+      <div class="grid">
+        <div class="card feature">
+          <div class="tag">Cơ bản</div>
+          <h3>Web giới thiệu 1 trang</h3>
+          <p>Hero + giới thiệu + dịch vụ + liên hệ. Phù hợp cá nhân / cửa hàng nhỏ.</p>
+        </div>
+        <div class="card feature">
+          <div class="tag">Nâng cao</div>
+          <h3>Thêm gallery / FAQ</h3>
+          <p>Thêm mục ảnh, câu hỏi thường gặp, hiệu ứng cuộn mượt.</p>
+        </div>
+        <div class="card feature">
+          <div class="tag">Tuỳ biến</div>
+          <h3>Thiết kế theo yêu cầu</h3>
+          <p>Đổi phong cách, màu chủ đạo, bố cục, nội dung, icon… theo ý bạn.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Liên hệ</h2>
+      <p>Form demo: gửi xong sẽ hiện thông báo (không gửi lên server).</p>
+
+      <div class="contact">
+        <div class="card form">
+          <form id="contactForm">
+            <div class="row">
+              <div>
+                <label for="name">Họ tên</label>
+                <input id="name" name="name" placeholder="Ví dụ: Nguyễn Văn A" required />
+              </div>
+              <div>
+                <label for="phone">Số điện thoại</label>
+                <input id="phone" name="phone" placeholder="Ví dụ: 090..." />
+              </div>
+            </div>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="ban@example.com" required />
+
+            <label for="message">Nội dung</label>
+            <textarea id="message" name="message" placeholder="Bạn muốn làm web như thế nào?" required></textarea>
+
+            <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap">
+              <button class="btn" type="submit">Gửi tin nhắn</button>
+              <button class="btn ghost" type="reset">Xoá</button>
+            </div>
+
+            <div class="toast ok" id="toastOk">✅ Đã nhận thông tin (demo). Mình sẽ liên hệ lại sớm!</div>
+            <div class="toast err" id="toastErr">❌ Vui lòng nhập đủ thông tin hợp lệ.</div>
+
+            <div class="note">*Nếu bạn muốn form gửi thật, mình có thể tích hợp EmailJS / Google Form / backend.</div>
+          </form>
+        </div>
+
+        <div class="card feature" style="padding:18px">
+          <div class="tag">Thông tin</div>
+          <h3>Đổi nội dung theo bạn</h3>
+          <p style="margin-bottom:12px">
+            Bạn chỉ cần nói: <b>web về gì</b>, <b>màu bạn thích</b>, và <b>các mục cần có</b>.
+          </p>
+          <div class="mini" style="margin-top:10px">
+            <h3>Ví dụ mục cần có</h3>
+            <p>Trang chủ • Sản phẩm • Bảng giá • Đánh giá • Tải về • Liên hệ</p>
+          </div>
+          <div class="mini" style="margin-top:10px">
+            <h3>Mẹo</h3>
+            <p>Muốn gắn tên miền + up lên hosting (GitHub Pages, Vercel), mình hướng dẫn luôn.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap">
+        <div>© <span id="year"></span> Web của bạn • Tạo bằng HTML/CSS/JS</div>
+        <div>Made with ❤️</div>
+      </div>
+    </footer>
+  </main>
+
+  <button class="top" id="toTop" type="button">⬆ Lên đầu</button>
+
+  <script>
+    // Năm hiện tại
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Copy link
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(location.href);
+        alert("Đã copy link trang!");
+      }catch{
+        alert("Trình duyệt không cho copy tự động. Bạn copy thủ công trên thanh địa chỉ nhé.");
+      }
+    });
+
+    // Form demo
+    const form = document.getElementById("contactForm");
+    const toastOk = document.getElementById("toastOk");
+    const toastErr = document.getElementById("toastErr");
+
+    function show(el){
+      toastOk.style.display = "none";
+      toastErr.style.display = "none";
+      el.style.display = "block";
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if(name && validEmail && message){
+        show(toastOk);
+        form.reset();
+      }else{
+        show(toastErr);
+      }
+    });
+
+    // Nút lên đầu
+    const toTop = document.getElementById("toTop");
+    window.addEventListener("scroll", () => {
+      toTop.style.display = window.scrollY > 500 ? "block" : "none";
+    });
+    toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+
+    // Đổi nền (dark/đậm hơn)
+    let alt = false;
+    document.getElementById("toggleTheme").addEventListener("click", () => {
+      alt = !alt;
+      document.documentElement.style.setProperty("--bg", alt ? "#050814" : "#0b1220");
+      document.documentElement.style.setProperty("--card", alt ? "#0c1330" : "#111b32");
+    });
+  </script>
+</body>
+</html>
