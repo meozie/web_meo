@@ -38,6 +38,25 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* --- HIỆU ỨNG TUYẾT RƠI --- */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            user-select: none;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh);
+            }
         }
 
         /* --- NAVBAR --- */
@@ -60,11 +79,9 @@
             color: var(--text-color);
         }
 
-        .menu a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 600;
-            margin: 0 10px;
+        .nav-btns {
+            display: flex;
+            gap: 10px;
         }
 
         .toggle-btn {
@@ -75,6 +92,7 @@
             cursor: pointer;
             font-weight: bold;
             color: var(--text-color);
+            font-size: 14px;
         }
 
         /* --- CONTAINER --- */
@@ -156,7 +174,10 @@
 
     <nav>
         <a href="#" class="logo">🌸 Share Linh Tinh</a>
-        <button class="toggle-btn" onclick="toggleTheme()">🌙 Đổi màu</button>
+        <div class="nav-btns">
+            <button class="toggle-btn" id="snow-toggle" onclick="toggleSnow()">❄️ Tuyết: Tắt</button>
+            <button class="toggle-btn" onclick="toggleTheme()">🌙 Đổi màu</button>
+        </div>
     </nav>
 
     <div class="container">
@@ -203,51 +224,73 @@
     </div>
 
     <script>
-// 1. Kiểm tra bộ nhớ khi vừa load trang
-const body = document.body;
-const btn = document.querySelector('.toggle-btn');
-const savedTheme = localStorage.getItem('theme');
+        // --- CHỨC NĂNG LƯU MÀU ---
+        const body = document.body;
+        const themeBtn = document.querySelectorAll('.toggle-btn')[1];
+        const savedTheme = localStorage.getItem('theme');
 
-// Nếu trước đó đã lưu là 'dark', thì bật chế độ tối lên ngay
-if (savedTheme === 'dark') {
-    body.classList.add('dark-mode');
-    if (btn) btn.innerHTML = '☀️ Sáng Lên';
-}
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            if (themeBtn) themeBtn.innerHTML = '☀️ Sáng Lên';
+        }
 
-// 2. Hàm đổi màu (kèm lưu vào bộ nhớ)
-function toggleTheme() {
-    body.classList.toggle('dark-mode');
-    
-    let theme = 'light';
-    if (body.classList.contains('dark-mode')) {
-        theme = 'dark';
-        if (btn) btn.innerHTML = '☀️ Sáng Lên';
-    } else {
-        if (btn) btn.innerHTML = '🌙 Tối Đi';
-    }
-    
-    // Lưu lại lựa chọn vào localStorage
-    localStorage.setItem('theme', theme);
-}
+        function toggleTheme() {
+            body.classList.toggle('dark-mode');
+            let theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            themeBtn.innerHTML = theme === 'dark' ? '☀️ Sáng Lên' : '🌙 Tối Đi';
+            localStorage.setItem('theme', theme);
+        }
 
-// 3. Các hàm xử lý Modal (giữ nguyên chức năng cũ)
-function openModal(title, usage) {
-    document.getElementById('modalTitle').innerText = title;
-    document.getElementById('modalUsage').innerHTML = usage;
-    document.getElementById('productModal').style.display = 'flex';
-}
+        // --- CHỨC NĂNG TUYẾT RƠI ---
+        let snowActive = false;
+        let snowInterval;
 
-function closeModal() {
-    document.getElementById('productModal').style.display = 'none';
-}
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Rơi từ 2-5s
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
 
-window.onclick = function(event) {
-    const modal = document.getElementById('productModal');
-    if (event.target == modal) {
-        closeModal();
-    }
-}
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+
+        function toggleSnow() {
+            const snowBtn = document.getElementById('snow-toggle');
+            snowActive = !snowActive;
+
+            if (snowActive) {
+                snowBtn.innerHTML = '❄️ Tuyết: Bật';
+                snowInterval = setInterval(createSnowflake, 150);
+            } else {
+                snowBtn.innerHTML = '❄️ Tuyết: Tắt';
+                clearInterval(snowInterval);
+            }
+        }
+
+        // --- MODAL ---
+        function openModal(title, usage) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalUsage').innerHTML = usage;
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
     </script>
 </body>
-    </html>
-    
+</html>
