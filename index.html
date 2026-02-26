@@ -40,12 +40,13 @@
         }
         .section-title::before, .section-title::after { content: ""; flex: 1; height: 2px; background: var(--nav-bg); max-width: 100px; }
 
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; justify-content: center; }
         
         .product-card { 
             background-color: var(--card-bg); border-radius: 25px; padding: 20px; 
             box-shadow: var(--shadow); transition: 0.3s; 
             text-decoration: none; color: inherit; display: block;
+            max-width: 300px; margin: auto;
         }
         .product-card:hover { transform: translateY(-10px); }
         
@@ -77,12 +78,6 @@
                 <p>Mềm mại và thơm mùi dâu tây.</p>
                 <div class="btn">Xem chi tiết ✨</div>
             </a>
-            <a href="sanpham1.html" class="product-card">
-                <div class="icon-box">🐰</div>
-                <h3>Thỏ Bông Trắng</h3>
-                <p>Tai dài siêu cute cho bé gái.</p>
-                <div class="btn">Xem chi tiết ✨</div>
-            </a>
         </div>
 
         <h2 class="section-title">👗 Khu Vực Quần Áo</h2>
@@ -91,12 +86,6 @@
                 <div class="icon-box">👚</div>
                 <h3>Áo Thun Hồng</h3>
                 <p>Chất liệu cotton thoáng mát.</p>
-                <div class="btn">Xem chi tiết ✨</div>
-            </a>
-            <a href="sanpham-quan-ao.html" class="product-card">
-                <div class="icon-box">👗</div>
-                <h3>Váy Công Chúa</h3>
-                <p>Lộng lẫy cho những buổi tiệc.</p>
                 <div class="btn">Xem chi tiết ✨</div>
             </a>
         </div>
