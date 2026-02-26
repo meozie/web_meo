@@ -1,1 +1,139 @@
-aa
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Túi Mù 🎐</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fff0f5;
+            --text-color: #5c404c;
+            --card-bg: #ffffff;
+            --btn-color: #ff69b4;
+            --shadow: 0 10px 30px rgba(255, 105, 180, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); padding: 20px; min-height: 100vh; }
+
+        .container { max-width: 800px; margin: 40px auto; }
+
+        /* Nút quay lại trang chủ */
+        .back-btn { 
+            text-decoration: none; 
+            color: var(--btn-color); 
+            font-weight: bold; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            transition: 0.3s;
+        }
+        .back-btn:hover { transform: translateX(-5px); }
+
+        /* Khung chính của trang chi tiết */
+        .main-card { 
+            background: var(--card-bg); 
+            border-radius: 30px; 
+            overflow: hidden; 
+            box-shadow: var(--shadow); 
+        }
+
+        .header { padding: 40px; text-align: center; border-bottom: 1px solid #f0f0f0; }
+        .header h1 { font-size: 32px; color: var(--btn-color); margin-bottom: 10px; }
+
+        /* --- HỆ THỐNG TAB (GIỐNG DAULA.SHOP) --- */
+        .tabs { display: flex; background: #fafafa; border-bottom: 1px solid #eee; }
+        .tab-btn { 
+            flex: 1; 
+            padding: 20px; 
+            border: none; 
+            background: none; 
+            cursor: pointer; 
+            font-weight: bold; 
+            color: #888; 
+            font-size: 16px; 
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-btn.active { 
+            color: var(--btn-color); 
+            border-bottom: 3px solid var(--btn-color); 
+            background: white; 
+        }
+
+        /* Nội dung bên trong các Tab */
+        .content { padding: 40px; min-height: 250px; line-height: 1.8; font-size: 17px; }
+        .pane { display: none; animation: fadeIn 0.3s ease; }
+        .pane.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Nút tải xuống ở dưới cùng */
+        .footer { padding: 30px; text-align: center; border-top: 1px solid #f0f0f0; }
+        .btn-dl { 
+            background: var(--btn-color); 
+            color: white; 
+            padding: 15px 50px; 
+            border-radius: 20px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 18px;
+            display: inline-block; 
+            transition: 0.3s;
+        }
+        .btn-dl:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">← Quay lại trang chủ</a>
+        
+        <div class="main-card">
+            <div class="header">
+                <h1>Túi Mù 99K 📦</h1>
+                <p>Khám phá bí mật bên trong chiếc túi may mắn</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab(0)">Mô tả</button>
+                <button class="tab-btn" onclick="switchTab(1)">Cách dùng</button>
+                <button class="tab-btn" onclick="switchTab(2)">Quà tặng</button>
+            </div>
+
+            <div class="content">
+                <div id="pane-0" class="pane active">
+                    <p>✨ Đây là sản phẩm Túi Mù phiên bản giới hạn. Mỗi túi sẽ chứa một món đồ ngẫu nhiên cực kỳ giá trị.</p>
+                    <p style="margin-top: 10px;">Đừng bỏ lỡ cơ hội sở hữu những vật phẩm hiếm nhất!</p>
+                </div>
+                <div id="pane-1" class="pane">
+                    <p>1. Thanh toán để nhận mã mở túi.</p>
+                    <p>2. Nhập mã vào ứng dụng hoặc trang web để "Xé túi".</p>
+                    <p>3. Vật phẩm sẽ tự động được gửi vào kho đồ của bạn.</p>
+                </div>
+                <div id="pane-2" class="pane">
+                    <p>🎁 Tặng kèm 1 Voucher giảm giá 20% cho lần mua tiếp theo.</p>
+                    <p>🎁 Cơ hội nhận được Icon siêu cấp nếu bạn may mắn!</p>
+                </div>
+            </div>
+
+            <div class="footer">
+                <a href="#" class="btn-dl">⬇️ MUA NGAY / TẢI XUỐNG</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Hàm xử lý chuyển đổi giữa các Tab
+        function switchTab(index) {
+            const btns = document.querySelectorAll('.tab-btn');
+            const panes = document.querySelectorAll('.pane');
+            
+            btns.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+                panes[i].classList.toggle('active', i === index);
+            });
+        }
+    </script>
+</body>
+</html>
