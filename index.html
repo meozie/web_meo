@@ -15,18 +15,18 @@
             --shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; transition: all 0.3s ease; }
         body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; min-height: 100vh; }
 
+        /* --- TUYẾT RƠI SIÊU CHẬM --- */
         .snowflake { position: fixed; top: -10px; color: white; user-select: none; z-index: 9999; pointer-events: none; animation: fall linear forwards; font-size: 8px; }
         @keyframes fall { to { transform: translateY(105vh); } }
 
+        /* --- NAV --- */
         nav { background-color: var(--nav-bg); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 24px; font-weight: 700; text-decoration: none; color: var(--btn-color); display: inline-block; }
-        .logo:hover { transform: rotate(-5deg) scale(1.1); color: white; }
+        .logo { font-size: 24px; font-weight: 700; text-decoration: none; color: var(--btn-color); }
 
         .toggle-btn { background-color: var(--card-bg); border: 1px solid var(--btn-color); padding: 8px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; color: var(--text-color); }
-        .toggle-btn:hover { background-color: var(--btn-color); color: #1e1e28; box-shadow: 0 0 15px var(--btn-color); }
 
         .container { max-width: 1100px; margin: 40px auto; padding: 20px; text-align: center; }
         .section-title { margin: 50px 0 20px; font-size: 28px; display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--btn-color); }
@@ -34,31 +34,42 @@
 
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; justify-content: center; }
         
+        /* --- THẺ SẢN PHẨM --- */
         .product-card { 
-            background-color: var(--card-bg); border-radius: 25px; padding: 25px; box-shadow: var(--shadow); 
+            background-color: var(--card-bg); border-radius: 25px; padding: 25px; 
             text-decoration: none; color: inherit; display: block; max-width: 320px; margin: auto;
-            border: 1px solid rgba(255, 255, 255, 0.05); position: relative; overflow: hidden;
+            border: 2px solid transparent; /* Viền mặc định trong suốt */
+            position: relative; overflow: hidden;
         }
-        .product-card:hover { transform: translateY(-12px); border-color: var(--btn-color); box-shadow: 0 10px 25px rgba(189, 147, 249, 0.2); }
 
-        /* CSS MỚI CHO Ô CHỨA ẢNH SẢN PHẨM */
+        /* HIỆU ỨNG RÊ CHUỘT: PHÁT SÁNG ĐỔI MÀU */
+        .product-card:hover { 
+            transform: translateY(-10px); 
+            animation: rainbowBorder 3s linear infinite; /* Chạy hiệu ứng đổi màu viền */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Định nghĩa các màu phát sáng */
+        @keyframes rainbowBorder {
+            0% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; } /* Xanh lá */
+            20% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; } /* Đỏ */
+            40% { border-color: #ffff00; box-shadow: 0 0 15px #ffff00; } /* Vàng */
+            60% { border-color: #9400d3; box-shadow: 0 0 15px #9400d3; } /* Tím */
+            80% { border-color: #ff69b4; box-shadow: 0 0 15px #ff69b4; } /* Hồng */
+            100% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
+        }
+
         .icon-box { 
-            width: 120px; 
-            height: 120px; 
-            margin: 0 auto 15px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            overflow: hidden; 
-            border-radius: 20px;
-            transition: 0.5s; 
+            width: 120px; height: 120px; margin: 0 auto 15px; 
+            display: flex; align-items: center; justify-content: center; 
+            overflow: hidden; border-radius: 20px;
         }
         .icon-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        .product-card:hover .icon-box { transform: scale(1.1) rotate(5deg); }
+        /* Chỉ phóng to nhẹ ảnh, KHÔNG NGHIÊN */
+        .product-card:hover .icon-box { transform: scale(1.05); }
 
         .btn { background-color: var(--btn-color); color: #1e1e28; border: none; padding: 10px 22px; border-radius: 12px; font-weight: bold; display: inline-block; margin-top: 15px; font-size: 14px; }
-        .product-card:hover .btn { background-color: white; transform: scale(1.05); }
 
         footer { text-align: center; padding: 40px; background-color: var(--nav-bg); margin-top: 50px; opacity: 0.6; }
     </style>
@@ -72,7 +83,7 @@
 
     <div class="container">
         <h1>Cửa Hàng Của Duy 🎀</h1>
-        <p style="opacity: 0.7; margin-bottom: 30px;">Giao diện mượt mà - Tuyết rơi siêu chậm</p>
+        <p style="opacity: 0.7; margin-bottom: 30px;">Giao diện Neon - Hiệu ứng viền đổi màu</p>
 
         <h2 class="section-title">Share Tiện Ích</h2>
         <div class="product-grid">
