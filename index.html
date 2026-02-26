@@ -1,159 +1,5 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Share Linh Tinh 🎐</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* THIẾT LẬP MÀU TỐI MẶC ĐỊNH */
-        :root {
-            --bg-color: #1e1e28; 
-            --text-color: #f8f8f2; 
-            --card-bg: #2b2b36; 
-            --nav-bg: #181820; 
-            --btn-color: #bd93f9; 
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; transition: 0.3s; }
-        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; min-height: 100vh; }
-
-        /* --- TUYẾT RƠI NHỎ & CHẬM --- */
-        .snowflake { 
-            position: fixed; 
-            top: -10px; 
-            color: white; 
-            user-select: none; 
-            z-index: 9999; 
-            pointer-events: none; 
-            animation: fall linear forwards; 
-            font-size: 8px; /* Tuyết nhỏ hơn */
-        }
-        @keyframes fall { 
-            to { transform: translateY(105vh); } 
-        }
-
-        /* --- NAV --- */
-        nav { 
-            background-color: var(--nav-bg); 
-            padding: 15px 30px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            box-shadow: var(--shadow); 
-            position: sticky; 
-            top: 0; 
-            z-index: 100; 
-        }
-        .logo { font-size: 24px; font-weight: 700; text-decoration: none; color: var(--btn-color); }
-        .toggle-btn { 
-            background-color: var(--card-bg); 
-            border: 1px solid var(--btn-color); 
-            padding: 8px 15px; 
-            border-radius: 20px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            color: var(--text-color); 
-            font-size: 13px; 
-        }
-
-        .container { max-width: 1100px; margin: 40px auto; padding: 20px; text-align: center; }
-        
-        /* --- TIÊU ĐỀ PHÂN KHU --- */
-        .section-title { 
-            margin: 50px 0 20px; 
-            font-size: 28px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 10px;
-            color: var(--btn-color);
-        }
-        .section-title::before, .section-title::after { 
-            content: ""; flex: 1; height: 1px; background: rgba(189, 147, 249, 0.3); max-width: 100px; 
-        }
-
-        .product-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 25px; 
-            margin-bottom: 50px; 
-            justify-content: center; 
-        }
-        
-        .product-card { 
-            background-color: var(--card-bg); 
-            border-radius: 25px; 
-            padding: 20px; 
-            box-shadow: var(--shadow); 
-            transition: 0.3s; 
-            text-decoration: none; 
-            color: inherit; 
-            display: block;
-            max-width: 300px; 
-            margin: auto;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .product-card:hover { 
-            transform: translateY(-10px); 
-            border-color: var(--btn-color);
-        }
-        
-        .icon-box { font-size: 50px; margin-bottom: 10px; }
-        .btn { 
-            background-color: var(--btn-color); 
-            color: #1e1e28; 
-            border: none; 
-            padding: 8px 18px; 
-            border-radius: 12px; 
-            font-weight: bold; 
-            display: inline-block; 
-            margin-top: 10px; 
-            font-size: 14px; 
-        }
-
-        footer { text-align: center; padding: 40px; background-color: var(--nav-bg); margin-top: 50px; opacity: 0.6; font-size: 14px; }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <a href="index.html" class="logo">🌸 Share Linh Tinh</a>
-        <div style="display: flex; gap: 10px;">
-            <button class="toggle-btn" id="snow-toggle" onclick="toggleSnow()">❄️ Tuyết: Tắt</button>
-        </div>
-    </nav>
-
-    <div class="container">
-        <h1>Cửa Hàng Của Em 🎀</h1>
-        <p style="opacity: 0.8;">Khám phá các sản phẩm hot nhất trong giao diện tối.</p>
-
-        <h2 class="section-title">🧸 Khu Vực Gấu Bông</h2>
-        <div class="product-grid">
-            <a href="sanpham1.html" class="product-card">
-                <div class="icon-box">🧸</div>
-                <h3>Gấu Bông Dâu</h3>
-                <p style="font-size: 14px; opacity: 0.7;">Mềm mại và thơm mùi dâu tây.</p>
-                <div class="btn">Xem chi tiết ✨</div>
-            </a>
-        </div>
-
-        <h2 class="section-title">👗 Khu Vực Quần Áo</h2>
-        <div class="product-grid">
-            <a href="sanpham-quan-ao.html" class="product-card">
-                <div class="icon-box">👚</div>
-                <h3>Áo Thun Hồng</h3>
-                <p style="font-size: 14px; opacity: 0.7;">Chất liệu cotton thoáng mát.</p>
-                <div class="btn">Xem chi tiết ✨</div>
-            </a>
-        </div>
-    </div>
-
-    <footer><p>© 2026 Share Linh Tinh @_@</p></footer>
-
     <script>
-        // --- HIỆU ỨNG TUYẾT RƠI NHẸ NHÀNG ---
+        // --- HIỆU ỨNG TUYẾT RƠI CHẬM NHẤT CÓ THỂ ---
         let snowInterval;
         let isSnowing = false;
 
@@ -162,13 +8,19 @@
             s.className = 'snowflake';
             s.innerHTML = '❄';
             s.style.left = Math.random() * 100 + 'vw';
-            s.style.opacity = Math.random() * 0.7 + 0.3;
-            // Kích thước nhỏ hơn
-            s.style.fontSize = Math.random() * 5 + 5 + 'px'; 
-            // Tốc độ chậm hơn (5-8 giây thay vì 2-5 giây)
-            s.style.animationDuration = Math.random() * 3 + 5 + 's'; 
+            s.style.opacity = Math.random() * 0.5 + 0.2; // Làm tuyết mờ hơn một chút cho nhẹ nhàng
+            
+            // Kích thước hạt tuyết siêu nhỏ
+            s.style.fontSize = Math.random() * 4 + 4 + 'px'; 
+            
+            // Tốc độ rơi: Siêu chậm (từ 15 đến 25 giây mới rơi hết màn hình)
+            const slowSpeed = Math.random() * 10 + 15;
+            s.style.animationDuration = slowSpeed + 's'; 
+            
             document.body.appendChild(s);
-            setTimeout(() => s.remove(), 8000);
+            
+            // Xóa hạt tuyết sau khi đã rơi xong (khớp với thời gian slowSpeed)
+            setTimeout(() => s.remove(), slowSpeed * 1000);
         }
 
         function toggleSnow() {
@@ -177,13 +29,10 @@
                 clearInterval(snowInterval);
                 btn.innerHTML = '❄️ Tuyết: Tắt';
             } else {
-                snowInterval = setInterval(createSnow, 250); // Khoảng cách rơi thưa hơn cho đỡ rối
+                // Tạo hạt tuyết mới chậm hơn (800ms mới ra 1 hạt thay vì 250ms)
+                snowInterval = setInterval(createSnow, 800); 
                 btn.innerHTML = '❄️ Tuyết: Bật';
             }
             isSnowing = !isSnowing;
         }
-
-        // Mặc định tắt tuyết để khách tự bật, hoặc em muốn tự bật thì thêm dòng toggleSnow() ở đây nhé.
     </script>
-</body>
-</html>
