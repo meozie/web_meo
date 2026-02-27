@@ -26,8 +26,8 @@
             color: var(--btn-color); 
             font-weight: bold; 
             display: inline-block; 
-            margin-bottom: 25px; 
-            font-size: 18px; /* Chữ quay lại to hơn */
+            margin-bottom: 20px; 
+            font-size: 16px;
         }
         .back-btn:hover { transform: translateX(-5px); color: white; }
 
@@ -39,21 +39,19 @@
             border: 2px solid var(--border-color);
         }
 
-        /* Tiêu đề chính to rõ */
-        .header { padding: 50px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .header h1 { font-size: 38px; color: var(--btn-color); margin-bottom: 10px; }
+        .header { padding: 40px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .header h1 { font-size: 32px; color: var(--btn-color); margin-bottom: 10px; }
 
-        /* Chữ trên Tab to hơn */
         .tabs { display: flex; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .tab-btn { 
             flex: 1; 
-            padding: 22px; 
+            padding: 20px; 
             border: none; 
             background: none; 
             cursor: pointer; 
             font-weight: bold; 
             color: #888; 
-            font-size: 20px; 
+            font-size: 16px;
             border-bottom: 3px solid transparent;
         }
         .tab-btn.active { 
@@ -62,30 +60,27 @@
             background: rgba(255,255,255,0.02); 
         }
 
-        /* Chữ nội dung bên trong to lên */
-        .content { padding: 45px 30px; min-height: 250px; line-height: 1.8; font-size: 20px; }
+        .content { padding: 40px; min-height: 250px; line-height: 1.8; font-size: 16px; }
         .pane { display: none; animation: fadeIn 0.4s ease; }
         .pane.active { display: block; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Nút tải xuống to và dễ bấm */
-        .footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer { padding: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
         .btn-dl { 
             background: var(--btn-color); 
             color: #1e1e28; 
-            padding: 18px 60px; 
-            border-radius: 25px; 
+            padding: 15px 50px; 
+            border-radius: 20px; 
             text-decoration: none; 
             font-weight: bold; 
-            font-size: 22px;
+            font-size: 18px;
             display: inline-block; 
         }
         .btn-dl:hover { background: white; transform: scale(1.05); }
 
-        /* Chỉnh lại khoảng cách danh sách */
-        ul li { margin-bottom: 12px; }
-        strong { color: var(--btn-color); font-size: 22px; display: block; margin-bottom: 8px; }
+        ul li { margin-bottom: 8px; }
+        strong { color: var(--btn-color); font-size: 18px; display: block; margin-bottom: 5px; }
     </style>
 </head>
 <body>
@@ -105,37 +100,44 @@
 
             <div class="content">
                 <div id="pane-0" class="pane active">
-                    <p>✨ **Github Việt Hóa** là công cụ giúp chuyển đổi giao diện Github sang tiếng Việt, giúp bạn dễ dàng quản lý code và làm việc hơn.</p>
-                    <p style="margin-top: 15px;">Phù hợp cho những bạn mới bắt đầu tiếp cận với Github mà chưa quen với các thuật ngữ tiếng Anh chuyên ngành.</p>
+                    <p>✨ **Github Việt Hóa** là công cụ giúp chuyển đổi ngôn ngữ Github sang tiếng Việt, giúp bạn dễ dàng quản lý code và làm việc hơn.</p>
+                    <p style="margin-top: 10px;">Phù hợp cho những bạn mới bắt đầu tiếp cận với Github mà chưa quen với các thuật ngữ tiếng Anh chuyên ngành.</p>
                     
-                    <ul style="margin-left: 25px; margin-top: 20px; list-style: none;">
-                        <li>🇻🇳 Việt hóa toàn bộ các nút điều hướng chính</li>
-                        <li>⚡ Tương thích tốt với các phiên bản Chrome mới nhất</li>
+                    <ul style="margin-left: 20px; margin-top: 15px; list-style: none;">
+                        <li>🇻🇳 Việt hóa toàn bộ 90%</li>
+                        <li>⚡ Tương thích tốt với các thiết bị Android</li>
                         <li>🎨 Giữ nguyên bố cục gốc, không làm lỗi giao diện</li>
-                        <li>🌈 Cập nhật liên tục theo thay đổi của Github</li>
+                        <li>🌈 Phiên Bản: 1.246.0 (27/02/2026)</li>
                     </ul>
                 </div>
 
                 <div id="pane-1" class="pane">
-                    <strong>Bước 1: Giải nén file ZIP</strong>
-                    - Nhấn chuột phải vào file .zip và chọn Extract here.<br><br>
+                    <strong>✅ Cách cài đặt APK trên Android</strong><br>
+                    
+                    <p><b>🔹 Bước 1: Tải file APK</b></p>
+                    <p>- Tải file .apk từ web về máy.</p>
+                    <p>- File thường nằm trong Quản lý tệp > mục Download.</p><br>
 
-                    <strong>Bước 2: Mở trang quản lý tiện ích</strong>
-                    👉 Với Chrome:<br>
-                    - Mở trình duyệt, chọn biểu tượng ⋮ (3 chấm dọc).<br>
-                    - Chọn <b>Tiện ích mở rộng</b> (Extensions).<br>
-                    - Hoặc gõ: <code>chrome://extensions/</code><br>
-                    - Bật <b>Developer mode</b> ở góc phải trên.<br><br>
+                    <p><b>🔹 Bước 2: Cho phép cài ứng dụng không rõ nguồn gốc</b></p>
+                    <p>- Vào Cài đặt > Bảo mật hoặc Ứng dụng.</p>
+                    <p>- Chọn app bạn dùng mở file (Chrome/Quản lý tệp) và bật "Cho phép từ nguồn này".</p><br>
 
-                    <strong>Bước 3: Tải tiện ích lên</strong>
-                    - Nhấn nút <b>Load unpacked</b> và chọn thư mục đã giải nén.<br><br>
+                    <p><b>🔹 Bước 3: Cài đặt</b></p>
+                    <p>- Mở file .apk và bấm Cài đặt (Install).</p><br>
 
-                    <i style="font-size: 18px;">*Lưu ý: Nhấn <b>F5</b> nếu chưa thấy tiếng Việt.</i>
+                    <p style="background: rgba(255, 0, 0, 0.1); padding: 10px; border-radius: 10px;">
+                        <span style="color: #ff4444; font-weight: bold;">❗ Nếu không cài được:</span><br>
+                        - Kiểm tra bộ nhớ máy có đủ không.<br>
+                        - Tắt tạm Play Protect nếu bị chặn.
+                    </p>
                 </div>
             </div>
 
             <div class="footer">
-                <a href="LINK_CUA_DUY" class="btn-dl" target="_blank" rel="noopener noreferrer">⬇️ TẢI XUỐNG</a>
+                <a href="https://drive.google.com/file/d/1zRjH97aEUne8otkg8PUskk3ZnS4cXxIx/view?usp=drivesdk" 
+                   class="btn-dl" 
+                   target="_blank" 
+                   rel="noopener noreferrer">⬇️ TẢI XUỐNG</a>
             </div>
         </div>
     </div>
