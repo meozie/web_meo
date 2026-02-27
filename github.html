@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Việt Hóa 🎐</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -15,62 +15,45 @@
             --border-color: rgba(189, 147, 249, 0.4);
         }
 
-        /* XÓA KHOẢNG TRỐNG CỦA TRÌNH DUYỆT */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; transition: 0.3s; }
         
-        body { 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            min-height: 100vh;
-            overflow-x: hidden; /* Đảm bảo không bị cuộn ngang */
-        }
+        body { background-color: var(--bg-color); color: var(--text-color); padding: 20px; min-height: 100vh; }
 
-        /* CONTAINER RỘNG 100% */
-        .container { 
-            width: 100%; 
-            max-width: 100%; 
-            margin: 0; 
-            padding: 0; 
-        }
+        .container { max-width: 800px; margin: 40px auto; }
 
         .back-btn { 
             text-decoration: none; 
             color: var(--btn-color); 
             font-weight: bold; 
             display: inline-block; 
-            margin: 20px 15px; /* Giữ lề trái một chút cho nút quay lại dễ bấm */
+            margin-bottom: 25px; 
+            font-size: 18px; /* Chữ quay lại to hơn */
         }
-        .back-btn:hover { color: white; }
+        .back-btn:hover { transform: translateX(-5px); color: white; }
 
-        /* KHUNG CHÍNH TRÀN MÀN HÌNH */
         .main-card { 
             background: var(--card-bg); 
-            border-radius: 0; /* Xóa bo góc để lắp đầy màn hình */
-            width: 100%;
-            min-height: 100vh; /* Kéo dài xuống hết bên dưới */
-            box-shadow: none;
-            border: none;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border-radius: 30px; 
+            overflow: hidden; 
+            box-shadow: var(--shadow);
+            border: 2px solid var(--border-color);
         }
 
+        /* Tiêu đề chính to rõ */
         .header { padding: 50px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .header h1 { font-size: 36px; color: var(--btn-color); margin-bottom: 10px; }
+        .header h1 { font-size: 38px; color: var(--btn-color); margin-bottom: 10px; }
 
-        .tabs { 
-            display: flex; 
-            background: rgba(0,0,0,0.2); 
-            border-bottom: 1px solid rgba(255,255,255,0.05); 
-            width: 100%;
-        }
+        /* Chữ trên Tab to hơn */
+        .tabs { display: flex; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .tab-btn { 
             flex: 1; 
-            padding: 20px; 
+            padding: 22px; 
             border: none; 
             background: none; 
             cursor: pointer; 
             font-weight: bold; 
             color: #888; 
-            font-size: 18px; 
+            font-size: 20px; 
             border-bottom: 3px solid transparent;
         }
         .tab-btn.active { 
@@ -79,31 +62,30 @@
             background: rgba(255,255,255,0.02); 
         }
 
-        .content { padding: 40px 20px; line-height: 1.8; font-size: 17px; }
+        /* Chữ nội dung bên trong to lên */
+        .content { padding: 45px 30px; min-height: 250px; line-height: 1.8; font-size: 20px; }
         .pane { display: none; animation: fadeIn 0.4s ease; }
         .pane.active { display: block; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .footer { 
-            padding: 40px 20px; 
-            text-align: center; 
-            border-top: 1px solid rgba(255,255,255,0.05);
-            background: rgba(0,0,0,0.1);
-        }
+        /* Nút tải xuống to và dễ bấm */
+        .footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
         .btn-dl { 
             background: var(--btn-color); 
             color: #1e1e28; 
-            padding: 18px 0;
-            width: 90%; /* Nút tải xuống to gần hết chiều ngang */
-            max-width: 400px;
-            border-radius: 15px; 
+            padding: 18px 60px; 
+            border-radius: 25px; 
             text-decoration: none; 
             font-weight: bold; 
-            font-size: 20px;
+            font-size: 22px;
             display: inline-block; 
         }
-        .btn-dl:hover { background: white; transform: scale(1.02); }
+        .btn-dl:hover { background: white; transform: scale(1.05); }
+
+        /* Chỉnh lại khoảng cách danh sách */
+        ul li { margin-bottom: 12px; }
+        strong { color: var(--btn-color); font-size: 22px; display: block; margin-bottom: 8px; }
     </style>
 </head>
 <body>
@@ -126,26 +108,29 @@
                     <p>✨ **Github Việt Hóa** là công cụ giúp chuyển đổi giao diện Github sang tiếng Việt, giúp bạn dễ dàng quản lý code và làm việc hơn.</p>
                     <p style="margin-top: 15px;">Phù hợp cho những bạn mới bắt đầu tiếp cận với Github mà chưa quen với các thuật ngữ tiếng Anh chuyên ngành.</p>
                     
-                    <ul style="margin-left: 20px; margin-top: 20px; list-style: none;">
-                        <li style="margin-bottom: 12px;">🇻🇳 Việt hóa toàn bộ các nút điều hướng chính</li>
-                        <li style="margin-bottom: 12px;">⚡ Tương thích tốt với các phiên bản Chrome mới nhất</li>
-                        <li style="margin-bottom: 12px;">🎨 Giữ nguyên bố cục gốc, không làm lỗi giao diện</li>
-                        <li style="margin-bottom: 12px;">🌈 Cập nhật liên tục theo thay đổi của Github</li>
+                    <ul style="margin-left: 25px; margin-top: 20px; list-style: none;">
+                        <li>🇻🇳 Việt hóa toàn bộ các nút điều hướng chính</li>
+                        <li>⚡ Tương thích tốt với các phiên bản Chrome mới nhất</li>
+                        <li>🎨 Giữ nguyên bố cục gốc, không làm lỗi giao diện</li>
+                        <li>🌈 Cập nhật liên tục theo thay đổi của Github</li>
                     </ul>
                 </div>
 
                 <div id="pane-1" class="pane">
-                    <p style="margin-bottom: 15px;"><strong>Bước 1: Giải nén file ZIP</strong></p>
-                    <p>- Nhấn chuột phải vào file .zip và chọn Extract here.</p><br>
+                    <strong>Bước 1: Giải nén file ZIP</strong>
+                    - Nhấn chuột phải vào file .zip và chọn Extract here.<br><br>
 
-                    <p style="margin-bottom: 15px;"><strong>Bước 2: Mở quản lý tiện ích</strong></p>
-                    <p>- Gõ vào thanh địa chỉ Chrome: <code>chrome://extensions/</code></p>
-                    <p>- Bật <b>Developer mode</b> ở góc phải trên.</p><br>
+                    <strong>Bước 2: Mở trang quản lý tiện ích</strong>
+                    👉 Với Chrome:<br>
+                    - Mở trình duyệt, chọn biểu tượng ⋮ (3 chấm dọc).<br>
+                    - Chọn <b>Tiện ích mở rộng</b> (Extensions).<br>
+                    - Hoặc gõ: <code>chrome://extensions/</code><br>
+                    - Bật <b>Developer mode</b> ở góc phải trên.<br><br>
 
-                    <p style="margin-bottom: 15px;"><strong>Bước 3: Tải tiện ích</strong></p>
-                    <p>- Nhấn <b>Load unpacked</b> và chọn thư mục đã giải nén.</p><br>
+                    <strong>Bước 3: Tải tiện ích lên</strong>
+                    - Nhấn nút <b>Load unpacked</b> và chọn thư mục đã giải nén.<br><br>
 
-                    <p style="color: var(--btn-color);"><i>*Nhấn F5 nếu chưa thấy thay đổi.</i></p>
+                    <i style="font-size: 18px;">*Lưu ý: Nhấn <b>F5</b> nếu chưa thấy tiếng Việt.</i>
                 </div>
             </div>
 
