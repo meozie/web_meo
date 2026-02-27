@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Việt Hóa 🎐</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #1e1e28;
+            --text-color: #f8f8f2;
+            --card-bg: #2b2b36;
+            --btn-color: #bd93f9;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --border-color: rgba(189, 147, 249, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; transition: 0.3s; }
+        body { background-color: var(--bg-color); color: var(--text-color); padding: 20px; min-height: 100vh; }
+
+        .container { max-width: 800px; margin: 40px auto; }
+
+        .back-btn { 
+            text-decoration: none; 
+            color: var(--btn-color); 
+            font-weight: bold; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+        }
+        .back-btn:hover { color: white; }
+
+        .main-card { 
+            background: var(--card-bg); 
+            border-radius: 30px; 
+            overflow: hidden; 
+            box-shadow: var(--shadow);
+            border: 2px solid var(--border-color);
+        }
+
+        .header { padding: 40px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .header h1 { font-size: 32px; color: var(--btn-color); margin-bottom: 10px; }
+
+        .tabs { display: flex; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .tab-btn { 
+            flex: 1; 
+            padding: 20px; 
+            border: none; 
+            background: none; 
+            cursor: pointer; 
+            font-weight: bold; 
+            color: #888; 
+            font-size: 16px; 
+            border-bottom: 3px solid transparent;
+        }
+        .tab-btn.active { 
+            color: var(--btn-color); 
+            border-bottom: 3px solid var(--btn-color); 
+            background: rgba(255,255,255,0.02); 
+        }
+
+        .content { padding: 40px; min-height: 250px; line-height: 1.8; font-size: 16px; }
+        .pane { display: none; animation: fadeIn 0.4s ease; }
+        .pane.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .footer { padding: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        .btn-dl { 
+            background: var(--btn-color); 
+            color: #1e1e28; 
+            padding: 15px 50px; 
+            border-radius: 20px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 18px;
+            display: inline-block; 
+        }
+        .btn-dl:hover { background: white; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">← Quay lại trang chủ</a>
+        
+        <div class="main-card">
+            <div class="header">
+                <h1>Github Việt Hóa</h1>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab(0)">Mô tả</button>
+                <button class="tab-btn" onclick="switchTab(1)">Cách dùng</button>
+            </div>
+
+            <div class="content">
+                <div id="pane-0" class="pane active">
+                    <p>✨ **Github Việt Hóa** là công cụ giúp chuyển đổi giao diện Github sang tiếng Việt, giúp bạn dễ dàng quản lý code và làm việc hơn.</p>
+                    <p style="margin-top: 10px;">Phù hợp cho những bạn mới bắt đầu tiếp cận với Github mà chưa quen với các thuật ngữ tiếng Anh chuyên ngành.</p>
+                    
+                    <ul style="margin-left: 20px; margin-top: 15px; list-style: none;">
+                        <li style="margin-bottom: 8px;">🇻🇳 Việt hóa toàn bộ các nút điều hướng chính</li>
+                        <li style="margin-bottom: 8px;">⚡ Tương thích tốt với các phiên bản Chrome mới nhất</li>
+                        <li style="margin-bottom: 8px;">🎨 Giữ nguyên bố cục gốc, không làm lỗi giao diện</li>
+                        <li style="margin-bottom: 8px;">🌈 Cập nhật liên tục theo thay đổi của Github</li>
+                    </ul>
+                </div>
+
+                <div id="pane-1" class="pane">
+                    <strong>Bước 1: Giải nén file ZIP</strong><br>
+                    - Nhấn chuột phải vào file .zip<br>
+                    - Chọn Extract here hoặc Giải nén tại đây<br><br>
+
+                    <strong>Bước 2: Mở trang quản lý tiện ích</strong><br>
+                    👉 Với Chrome:<br>
+                    - Mở trình duyệt, chọn biểu tượng ⋮ (3 chấm dọc) ở góc trên bên phải.<br>
+                    - Chọn <b>Tiện ích mở rộng</b> (Extensions).<br>
+                    - Hoặc gõ vào thanh địa chỉ: <code>chrome://extensions/</code><br>
+                    - Bật <b>Chế độ dành cho nhà phát triển</b> (Developer mode) ở góc phải trên.<br><br>
+
+                    <strong>Bước 3: Tải tiện ích lên</strong><br>
+                    - Nhấn nút <b>Load unpacked</b> (Tải tiện ích đã giải nén).<br>
+                    - Chọn thư mục đã giải nén ở Bước 1 và nhấn OK.<br><br>
+
+                    <i>*Lưu ý: Nếu vào Github vẫn chưa thấy tiếng Việt, hãy nhấn nút <b>F5</b>.</i>
+                </div>
+            </div>
+
+            <div class="footer">
+                <a href="LINK_TAI_GITHUB_CUA_DUY" class="btn-dl" target="_blank" rel="noopener noreferrer">⬇️ TẢI XUỐNG</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(index) {
+            const btns = document.querySelectorAll('.tab-btn');
+            const panes = document.querySelectorAll('.pane');
+            btns.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+                panes[i].classList.toggle('active', i === index);
+            });
+        }
+    </script>
+</body>
+</html>
