@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Tiết Sản Phẩm 🎐</title>
+    <title>Chi Tiết Facebook Story Emotions v5 🎐</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -12,9 +12,10 @@
             --card-bg: #2b2b36;
             --btn-color: #bd93f9;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --border-color: rgba(189, 147, 249, 0.4); /* Màu viền tím tĩnh */
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; transition: 0.3s; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; transition: all 0.3s ease; }
         body { background-color: var(--bg-color); color: var(--text-color); padding: 20px; min-height: 100vh; }
 
         .container { max-width: 800px; margin: 40px auto; }
@@ -29,29 +30,20 @@
         }
         .back-btn:hover { transform: translateX(-5px); color: white; }
 
-        /* Khung chính với hiệu ứng VIỀN ĐỔI MÀU */
+        /* --- KHUNG CHÍNH (ĐÃ XÓA VIỀN NHÁY ĐỔI MÀU) --- */
         .main-card { 
             background: var(--card-bg); 
             border-radius: 30px; 
             overflow: hidden; 
             box-shadow: var(--shadow);
-            border: 2px solid transparent;
-            animation: rainbowBorder 3s linear infinite;
-        }
-
-        @keyframes rainbowBorder {
-            0% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
-            25% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
-            50% { border-color: #ffff00; box-shadow: 0 0 15px #ffff00; }
-            75% { border-color: #bd93f9; box-shadow: 0 0 15px #bd93f9; }
-            100% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
+            border: 2px solid var(--border-color); /* Viền tím tĩnh cố định */
         }
 
         .header { padding: 40px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .header h1 { font-size: 32px; color: var(--btn-color); margin-bottom: 10px; }
         .header p { opacity: 0.6; }
 
-        /* --- HỆ THỐNG TAB ĐÃ RÚT GỌN --- */
+        /* --- HỆ THỐNG TAB --- */
         .tabs { display: flex; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .tab-btn { 
             flex: 1; 
@@ -88,7 +80,7 @@
             font-size: 18px;
             display: inline-block; 
         }
-        .btn-dl:hover { transform: scale(1.05); background: white; }
+        .btn-dl:hover { transform: scale(1.05); background: white; box-shadow: 0 0 15px rgba(255,255,255,0.2); }
     </style>
 </head>
 <body>
@@ -99,7 +91,7 @@
         <div class="main-card">
             <div class="header">
                 <h1>Facebook Story Emotions v5</h1>
-                <p>Nâng cấp trải nghiệm Facebook của Duy</p>
+                <p>Nâng cấp trải nghiệm Facebook của Duy Mechatronics</p>
             </div>
 
             <div class="tabs">
@@ -109,13 +101,25 @@
 
             <div class="content">
                 <div id="pane-0" class="pane active">
-                    <p>✨ **Facebook Story Emotions v5** là công cụ giúp Duy thả được nhiều cảm xúc độc lạ hơn trên Story mà bản gốc không có.</p>
-                    <p style="margin-top: 10px;">Bản cập nhật mới nhất đã tối ưu tốc độ và cực kỳ an toàn cho tài khoản của Duy.</p>
+                    <p>✨ **Facebook Story Emotions v5** là một tiện ích giúp Duy thả cảm xúc lên story Facebook nhanh – gọn.</p>
+                    <p style="margin-top: 10px; margin-bottom: 15px;">Thay vì chỉ thả story một cách “lạnh lùng”, giờ đây Duy có thể bày tỏ nhiều cảm xúc cực dễ thương chỉ với một cú chạm 💖</p>
+                    
+                    <ul style="margin-left: 20px; margin-top: 15px; list-style: none;">
+                        <li style="margin-bottom: 8px;">💗 **Thêm nhiều emoji xinh xắn** để thả cảm xúc.</li>
+                        <li style="margin-bottom: 8px;">⚡ **Phản ứng siêu nhanh**, không cần thao tác rườm rà.</li>
+                        <li style="margin-bottom: 8px;">🎨 **Giao diện gọn gàng**, dễ dàng sử dụng.</li>
+                        <li style="margin-bottom: 8px;">🌈 **Hiệu ứng mượt mà**, không gây giật lag.</li>
+                        <li style="margin-bottom: 8px;">💫 **Giúp story của bạn** trở nên sinh động và ấn tượng hơn.</li>
+                    </ul>
+
+                    <p style="margin-top: 15px; border-left: 3px solid var(--btn-color); padding-left: 10px; font-style: italic; opacity: 0.8;">
+                        Sản phẩm tâm huyết từ Duy Mechatronics.
+                    </p>
                 </div>
                 <div id="pane-1" class="pane">
-                    <p>1. Nhấn nút Tải xuống bên dưới để lấy file cài đặt.</p>
+                    <p>1. Nhấn nút **TẢI XUỐNG NGAY** bên dưới để lấy file cài đặt.</p>
                     <p>2. Mở ứng dụng và đăng nhập tài khoản Facebook của Duy.</p>
-                    <p>3. Chọn icon cảm xúc yêu thích và tận hưởng kết quả trên Story.</p>
+                    <p>3. Chọn icon cảm xúc Duy muốn và tận hưởng kết quả trên Story.</p>
                 </div>
             </div>
 
